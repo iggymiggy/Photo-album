@@ -1,0 +1,11 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-body">
+      <h3>Register</h3>
+      {% load crispy_forms_tags %}
+      <form method="post" action="/account/register/" class="form-horizontal ajax-form" role="form">
+        {% crispy registration_form registration_form.helper %}
+      </form>
+    </div>
+  </div>
+</div>

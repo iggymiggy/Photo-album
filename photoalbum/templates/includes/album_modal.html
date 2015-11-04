@@ -1,0 +1,31 @@
+<!-- Modal for different layouts -->
+<div id="albumModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button  type="button" class="close" data-dismiss="modal">Close</button>
+				<h1>Create new album</h1>	
+			</div>
+			<div class="modal-body form-group">
+	            <form class="form-horizontal" action="/album/create/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input class="form-control" type="text" maxlength="30" name="album_name_create"  placeholder="Give name to your album" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input class="form-control album-description"  maxlength="100" name="album_description_create" type="text" placeholder="Give description of your album" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary create-album-btn" type="submit">Create album</button>
+                        </div>
+                    </div>
+                </form> 
+			</div>
+		</div>
+	</div>
+</div>
+

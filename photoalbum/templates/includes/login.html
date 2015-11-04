@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Site login</h4>
+          {% load crispy_forms_tags %}
+          <form method="post" action="/account/login/" class="form-horizontal ajax-form" role="form">
+            {% crispy login_form login_form.helper %}
+          </form>
+        </div>
+        <div class="col-md-6">
+          <h4>Social login</h4>
+          <fb:login-button data-show-faces="false" data-size="large", data-max-rows="1">Login with Facebook</fb:login-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div id="publicLinkModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button  type="button" class="close" data-dismiss="modal">Close</button>
+				<h1>Here is public link to album:</h1>	
+				<h3>{{ album.name }}</h3>
+			</div>
+			<div class="modal-body form-group">
+	            <form class="form-horizontal">
+                    <div class="form-group">
+                        
+                        <h4>http://still-ocean-6892.herokuapp.com/album/view/public/{{ album.public_hash }}/</h4>
+                    </div>
+                    
+                </form> 
+			</div>
+		</div>
+	</div>
+</div>
+

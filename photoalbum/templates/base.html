@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+      <meta charset="utf-8" />
+      {% block meta %}
+      <title>Photo Album</title>
+      <meta name="description" content="Album for showing photos" />
+      {% endblock %}
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <meta name="viewport" content="width=device-width" />
+      {% load static %}
+      <link rel="stylesheet" href="{% static "lib/bootstrap/dist/css/bootstrap.min.css" %}" />
+      <link rel="stylesheet" href="{% static "lib/bootstrap/dist/css/bootstrap-theme.min.css" %}" />
+      <link rel="stylesheet" href="{% static "css/base.css" %}" />
+      <link rel="stylesheet" href="{% static "css/flickr.css" %}" />
+      <link rel="stylesheet" href="{% static "lib/bootstrap-social/bootstrap-social.css" %}" />
+      <link rel="stylesheet" href="{% static "lib/font-awesome/css/font-awesome.css" %}" /> 
+      <link rel="stylesheet" href="{% static "lib/fancybox/source/jquery.fancybox.css?v=2.1.5" %}" type="text/css" media="screen" />
+      {% block head %}{% endblock %} 
+      <noscript>
+          <style type="text/css">
+              #wrapper {display: none;}
+          </style>
+          <div class="noscriptmsg">
+              <p>Life's too short. Enable javascript or go home!</p>
+          </div>
+      </noscript>
+    </head>
+    
+    <body>
+    {% block navbar %}
+    {% endblock %}
+    {% block content %}
+        <div class="container">
+            <h1>Photo album index</h1>
+            <ul>
+                <li><a href="/stuff/">Stuff</a></li>
+                <li><a href="/more_stuff">More Stuff</a></li>
+            </ul>
+        </div>
+    {% endblock %}
+    {% block modals %}
+    {% endblock %}
+    <script language="javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+    <script src="https://apis.google.com/js/client:plus.js"></script>
+    <script src="{% static "lib/jquery/jquery.min.js" %}"></script>
+    <script src="{% static "lib/jquery.cookie/jquery.cookie.js" %}"></script>
+    <script src="{% static "lib/bootstrap/dist/js/bootstrap.js" %}"></script>
+    <script src="{% static "js/layout.js" %}"></script>
+    <script src="{% static "js/flickr.js" %}"></script>
+    <script src="{% static "lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5" %}"></script>
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+    <script src="{% static "js/facebook.js" %}"></script>
+    <script src="{% static "js/page.js" %}" ></script>
+    {% block end_of_body %} 
+    {% endblock %}
+    </body>
+</html>

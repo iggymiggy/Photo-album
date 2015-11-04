@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+<div class="index">
+  {% block navbar %}
+  {% include "includes/navbar.html" %}
+  {% endblock %}
+
+  {% block content %}
+  <div class="container">
+    <div class="row">
+        <h1>Photoalbum</h1>
+    </div>
+    <div class="row">
+        <h4>Create your own photoalbums and share them with your friends, register today!</h4>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#albumModal">Create album</button>
+        </div>
+    </div>
+    
+    {% for album, thumb in album_and_thumbs %}
+    <div class="row album-and-thumbs">
+      <div class=" album-text">{{ album.name |default:" "}}</div>
+      <div class="col-md-6">
+        <a href="/album/view/{{ album.id }}/">
+          <img class="thumbnail img-responsive album-thumb" src="{{ thumb.url }}"/>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+    <ul>
+    {% for album in albums %} <!-- Remove one of these for loops -->
+      <li>{{ album.name }}</li>
+    {% endfor %}
+
+    {% endif %}
+    </ul>
+    <div id="albumLayout"></div>
+    
+
+    {% endblock %} 
+   
+  </div>
+</div>
+{% block modals %}
+<!-- Login -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+  aria-labelledby="loginModal" aria-hidden="true">
+</div>
+
+<!-- Register -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog"
+  aria-labelledby="registerModal" aria-hidden="true">
+</div>
+
+
+
+<!-- Create album modal -->
+{% include "includes/album_modal.html" %}
+
+<!-- Rename album modal -->
+{% include "includes/rename_album.html" %}
+
+<!-- Add image modal -->
+{% include "includes/add_image_modal.html" %}
+
+<!-- Layout modal -->
+{% include "includes/layout_modal.html" %}
+
+<!-- Remove page modal -->
+{% include "includes/remove_page.html" %}
+
+<!-- Remove page modal -->
+{% include "includes/remove_album.html" %}
+
+<!-- Name page modal -->
+{% include "includes/name_page.html" %}
+
+<!-- public link modal -->
+{% include "includes/public_link.html" %}
+
+{% endblock %}
+
+
+{% block end_of_body %}
+
+<!-- Include scripts or other end of body content -->
+{% load static %}
+<script src="{% static "js/index.js" %}"></script>
+{% endblock%}

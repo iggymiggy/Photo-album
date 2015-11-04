@@ -1,0 +1,167 @@
+
+.center
+{	
+	text-align:center;
+	float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.layout1 img {
+    max-width: 1000px;
+    max-height: 650px;
+    
+}
+
+.layout2 img{
+    max-width: 500px;
+    max-height: 650px;
+}
+
+.layout3 img{
+    max-width: 1000px;
+    max-height: 325px;
+}
+
+.layout4 img{
+    max-width: 500px;
+    max-height: 300px;
+}
+
+
+.album-img{
+    margin: auto auto;
+}
+.text-area{
+    text-align:center;
+    width: 100%;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.layout{
+    margin:10px 20px 20px 10px;
+    border:2px solid;
+    padding:10px;
+    width: 1100px;
+    height: 800px;
+    float:left;
+}
+
+.layout-row{
+    height: 400px;
+}
+
+#flickrContent{
+    float:left;
+    
+}
+
+#addImageModalError{
+    text-align:left;
+}
+
+
+
+.fancybox-nav span {
+ visibility: visible;
+}
+
+ textarea:disabled{ 
+    background-color:white;
+    color:black;
+    border: none;
+}
+
+
+.hidden{
+    display:none;
+}
+
+.li-pages 
+{
+    display:block;
+    float:left;
+    
+    margin-right: 10px;
+}
+
+
+.album-view-links, .page-view-links{
+    margin-top: 20px;
+    margin-right: 20px;
+    
+}
+
+.album-thumb { 
+    position: relative;
+    max-height:150px;
+    max-width:150px;
+    
+    
+ }
+.album-and-thumbs{
+    float:left;
+    margin: 20px;
+    height:150px;
+    width:150px;
+}
+.album-text{
+    text-align: center;
+    min-height:20px;
+    
+}
+
+.hidden-form{
+    display:none;
+}
+
+html,body {
+    overflow: auto;
+}
+.view-page-link{
+    font-size:17px;
+    text-decoration: none;
+}
+.view-page-link:hover{
+    
+    font-weight:bold;
+    color: red;
+}
+.album-description{
+    font-style:italic;
+}
+
+.view-page-link{
+    margin-right:15px;
+}
+
+.image-text{
+    font-size:25px;
+    overflow: hidden; 
+}
+
+.hiddendiv {  
+    display: none;  
+    white-space: pre-wrap;  
+    width: 500px;  
+    min-height: 50px;  
+    font-family: Arial, sans-serif;  
+    font-size: 13px;  
+    padding: 5px;  
+    word-wrap: break-word;  
+} 
+.next-slide{
+    float:right;
+}
+.prev-slide{
+    float:left;
+} 
+
+.album-name{
+    text-align:right;
+}
+.disableClick{
+    pointer-events: none;
+}
+

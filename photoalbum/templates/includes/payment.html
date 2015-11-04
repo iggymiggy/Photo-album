@@ -1,0 +1,18 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-body">
+      <form method="post" action="{{ remote_url }}" class="form-horizontal" role="form">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Payment form</h2>
+        <input type="hidden" name="pid" value="{{ pid }}" />
+        <input type="hidden" name="sid" value="{{ sid }}" />
+        <input type="hidden" name="success_url" value="{{ success_url }}" />
+        <input type="hidden" name="cancel_url" value="{{ cancel_url }}" />
+        <input type="hidden" name="error_url" value="{{ error_url }}" />
+        <input type="hidden" name="checksum" value="{{ checksum }}" />
+        <input type="text" name="amount" value="{{ amount }}" readonly/>
+        <button type="submit" class="btn btn-default">Accept payment</button>
+      </form>
+    </div>
+  </div>
+</div>

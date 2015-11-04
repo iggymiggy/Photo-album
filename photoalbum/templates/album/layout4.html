@@ -1,0 +1,57 @@
+<div class="row page-view-links">
+{% for album_page in album_pages %}
+    <li class="li-pages"> 
+            <a class="view-page-link fancybox-show hidden" rel="slideshow_group"  id="pageLin{{ album_page.id }}" onclick="ToPage(this)"  data-numberofpage="{{album_page.number}}">{{ album_page.number }}: {{ album_page.name }}</a>
+            <a class="view-page-link fancybox-show shown" rel="slideshow_group" href="javascript:void(0)" onclick="ToPage(this)" id="pageLink{{ album_page.id }}" data-numberofpage="{{album_page.number}}">{{ album_page.number }}: {{ album_page.name }}</a>
+            </li>
+{% endfor %}
+</div>
+{% if name %}
+    <h4 class="center" id="pageNameLayout">{{ number }}: {{ name }}</h4>
+{% else %}
+     <h4 class="center">{{ number }}</h4>
+{% endif %}
+<div class="row layout layout4" id="layout4" data-pageNumber={{ id }} data-page="{{number}}" data-pageid="{{ id }}" data-albumid="{{album_id.id}}">
+{% if pictures %} 
+    {% for picture in pictures %}
+	   {% if forloop.counter == 1 or forloop.counter == 3%}
+	        <div class="row layout-row">
+	    {% endif %}
+	    <div class="col-md-6">
+		    <textarea id="textBox{{forloop.counter}}" class="text-area image-text" maxlength="70" onkeyup="KeyupFunction(this)" data-pageid="{{ id }}" rows="1"  placeholder="Add text here">{{ picture.caption }}</textarea>
+	        <a data-toggle="modal" class="album-img" href="#addImageModal">
+                <img id="image{{forloop.counter}}" src="{{ picture.url }}" onclick="ImageClick(id)" class="center-block thumbnail img-responsive album-img" data-pictureid="{{ picture.id }}">
+            </a>
+	    </div>
+	    {% if forloop.counter == 2 or forloop.counter == 4%}
+	        </div>
+	    {% endif %}
+	{% endfor %}       
+{% else %}
+    {% for index in "1234" %}
+	    {% if index == '1' or index == '3'%}
+	        <div class="row layout-row">
+	    {% endif %}
+	    <div class="col-md-6">
+		    {% if not pictures.index.caption %}
+	            <textarea id="textBox{{index}}" class="text-area image-text" maxlength="70"  onkeyup="KeyupFunction(this)" data-pageid="{{ id }}"rows="1"  placeholder="Add text here"></textarea>
+	        {% else %}
+	             <textarea id="textBox{{index}}" class="text-area image-text" rows="1"  placeholder="Add text here"></textarea>
+	        {% endif %}
+		    <a  data-toggle="modal" class="album-img" href="#addImageModal">
+			    {% if not pictures.index.url %}
+                    <img id="image{{index}}" src="{{ STATIC_URL }}img/add_img.png" onclick="ImageClick(id)" class="center-block thumbnail img-responsive album-img" data-pictureid="{{ picture.id }}"></a>
+                {% else %}
+                     <img id="image{{index}}" src="{{ STATIC_URL }}img/add_img.png" onclick="ImageClick(id)" class="center-block thumbnail img-responsive album-img" data-pictureid="{{ picture.id }}"></a>>
+                {% endif %}
+			</a>
+	    </div>
+	    {% if index == '2' or index == '4'%}
+	        </div>
+	    {% endif %}
+	{% endfor %}
+{% endif %}		
+</div>
+  <!-- Name page modal -->
+{% include "includes/name_page.html" %}
+

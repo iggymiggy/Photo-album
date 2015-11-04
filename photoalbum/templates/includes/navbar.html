@@ -1,0 +1,22 @@
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Photoalbum</a>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="nav navbar-nav navbar-right">
+      <p class="navbar-text">Signed in as {{ user.get_full_name }}</p>
+      <p class="navbar-text"><a href="/account/logout/" class="navbar-link">Click here to logout</a></p>
+    </div>
+    {% else %}
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <a class="btn" data-toggle="modal" href="/account/login/" data-target="#loginModal">Login</a>
+      </li>
+      <li>
+        <a class="btn" data-toggle="modal" href="/account/register/" data-target="#registerModal">Register</a>
+      </li>
+    </ul> 
+    {% endif %}
+  </div>
+</nav>

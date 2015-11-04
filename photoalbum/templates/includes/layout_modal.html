@@ -1,0 +1,38 @@
+<!-- Modal for different layouts -->
+<div id="layoutModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button  type="button" class="close" data-dismiss="modal">Close</button>
+        <h1>Create page</h1>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <h3>Give name to your page</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-10 ">
+                <form class="form-horizontal " id="page-name-form" >
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="pageNameCreated" name="album_name" maxlength="30" placeholder="Give name to your page">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Choose page layout</h3>
+        </div>
+        <div class="row">
+          {% for index in "1234" %}
+          <div class="col-md-6 page-layout">
+            <a href="/album/page/create/" name="layout" class="layout-button page-layout" data-album="{{ album.id }}" data-page="{{ page.id }}" id="layout{{ index }}">
+              <img src="{{ STATIC_URL}}img/layout{{ index }}.png" data-album="{{ album.id }}"  data-page="{{ page.id }}" class="thumbnail center img-responsive ">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

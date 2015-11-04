@@ -1,0 +1,24 @@
+<div id="namePageModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button  type="button" class="close" data-dismiss="modal">Close</button>
+				<h1>Give name to page number {{ number }}</h1>	
+			</div>
+			<div class="modal-body form-group">
+	            <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="newPageName">Page name</label>
+                        <input type="text" class="form-control" id="newPageNameValue" maxlength="30" placeholder="{{ name | default:"Give name to page" }}"/>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-primary namePageModalButton" href="/album/page/name/" id="newPageNameOK{{ id }}" onclick="NamePage(id)"type="button">Name page</button>
+                        </div>
+                    </div>
+                </form> 
+			</div>
+		</div>
+	</div>
+</div>
+

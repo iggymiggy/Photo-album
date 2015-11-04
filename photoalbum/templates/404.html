@@ -1,0 +1,29 @@
+{% extends "home/base.html" %}
+
+{% block meta %}
+<title>Page not found</title>
+<meta name="description" content="You have tried to reach a page that doesn't exist." />
+{% endblock %}
+
+{% block assets %}
+<link rel="stylesheet" href="{% static "css/404.css" %}" />
+{% endblock %}
+
+{% block content %}
+<body>
+    <div id="content">
+        <div class="words">
+            <h1>404 Not found</h1>
+        </div>
+        <div class="words">
+            <p>Sorry, the page you tried to reach doesn't exist.</p>
+        </div>
+        <div class="words">
+            Go back to <a href="{% url home.views.index %}">the index page</a>.
+        </div>
+        <div id="motivational">
+            <img src="{% static "images/lost.jpg" %}"/>
+        </div>
+    </div>
+</body>
+{% endblock %}

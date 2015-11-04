@@ -1,0 +1,66 @@
+{% extends "home/index.html" %}
+<div id="publicAlbumView" >
+    <div class="container">
+        {% block content %}
+        <div class="container public-album-view" id="containerAlbum" data-albumid="{{album.id}}">
+            <!-- Payment modal -->
+            <div class="modal fade" id="paymentModal" tabindex="-1" role="dialog"
+              aria-labelledby="paymentModal" aria-hidden="true">
+            </div>
+            {% if not album.name or not album.description %}
+              <div class="row">
+                  <div class="col-md-6">
+                        <h1 class="album-name">{{ album.name }}</h1>
+                  </div>
+                  <div class="col-md-6">      
+                        <h1 class=" album-description">{{ album.description }}</h1>
+                  </div>
+               </div>
+            {% else %}
+                <div class="row">
+                  <div class="col-md-6">
+                        <h1 class="album-name">{{ album.name }}  - </h1>
+                  </div>
+                  <div class="col-md-6">      
+                        <h1 class=" album-description">{{ album.description }}</h1>
+                  </div>
+               </div>
+            {% endif %}
+            <div class="row">
+                <div class="btn-group btn-group-justified album-buttons">
+                    <div class="btn-group">
+                        <button type="button"  class="btn btn-primary slideshow-link fancybox-show" href="album/album.html" onclick="SlideShow(id)" id="currentPage{{ pages.0.id |default:"0" }}">Slideshow</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button"  class="btn btn-primary public-link-btn" data-toggle="modal"  data-target="#publicLinkModal" data-albumid="{{ album.public_hash }}">Public link</button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" href="/payments/{{album.id}}" data-target="#paymentModal">Buy album</a>
+                    </div>
+                </div>
+            </div>
+        
+    </div> 
+    <div class="container">
+        <div class="album-view-links">
+            {% for page in pages %}
+                <li class="li-pages"> 
+                    <a class="view-page-link fancybox-show hidden" rel="slideshow_group" href="/album/page/view/" id="pageLink{{ page.id }}" data-numberofpage="{{page.number}}">{{ page.number }}: {{ page.name }}</a>
+                <a class="view-page-link fancybox-show shown" rel="slideshow_group" href="/album/page/view/" id="pageLink{{ page.id }}" data-numberofpage="{{page.number}}">{{ page.number }}: {{ page.name }}</a>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+  <div class="container" id="albumPageLayout"></div>
+  {% endblock %}
+
+  <!-- Remove page modal -->
+  {% include "includes/remove_page.html" %}
+  
+  <!-- Name page modal -->
+{% include "includes/name_page.html" %}
+
+
+
+

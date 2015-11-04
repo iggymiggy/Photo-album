@@ -1,0 +1,31 @@
+.avatar {
+ float:left;
+ margin-right:10px;
+ width:100px;
+ height:100px;
+ overflow:hidden;
+ box-shadow:0 0 3px #bebdbe;
+ border:1px solid #bebdbe;
+ background:#fff;
+ padding:1px;
+ border-radius:8px;
+ -moz-border-radius:8px;
+ -webkit-border-radius:8px;
+ margin-bottom:10px;
+ }
+ .avatar:nth-child(5n+6) {
+  clear:left
+ }
+ .avatar img {
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border:0;
+ }
+.no_result {
+ float: left;
+ padding: 20px 40px 20px 270px;
+ width: 77%;
+}
+
+
